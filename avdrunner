@@ -1,4 +1,6 @@
-emulator_path=~/Android/Sdk/emulator/
+#!/bin/bash
+
+emulator_path=~/Library/Android/Sdk/emulator/
 
 show_banner() {
   clear
