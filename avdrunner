@@ -12,6 +12,7 @@ show_banner() {
 
 get_list_avds() {
  emulator_list=$(${emulator_path}/emulator -list-avds)
+ emulator_list=$(echo "$emulator_list" | grep -v "INFO    |")
  echo ${emulator_list}
 }
 
@@ -40,7 +41,7 @@ run_avd() {
   # Check ( $selected_index > -1) AND ( $selected_index < size of array $emulator_list )
   if [[ $selected_index -gt -1 ]] && [[ $selected_index -lt ${#emulator_list[@]} ]]; then
     printf "\nRunning ${emulator_list[$selected_index]}\n"
-    ${emulator_path}/emulator -avd ${emulator_list[$selected_index]}
+    ${emulator_path}/emulator -avd ${emulator_list[$selected_index] -snapshot Quickboot}
   else
     printf "\nAndroid virtual device not available !\n"
   fi
