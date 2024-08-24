@@ -41,7 +41,7 @@ run_avd() {
   # Check ( $selected_index > -1) AND ( $selected_index < size of array $emulator_list )
   if [[ $selected_index -gt -1 ]] && [[ $selected_index -lt ${#emulator_list[@]} ]]; then
     printf "\nRunning ${emulator_list[$selected_index]}\n"
-    ${emulator_path}/emulator -avd ${emulator_list[$selected_index] -snapshot Quickboot}
+    ${emulator_path}/emulator -avd ${emulator_list[$selected_index] -quick-boot -no-snapshot-load}
   else
     printf "\nAndroid virtual device not available !\n"
   fi
